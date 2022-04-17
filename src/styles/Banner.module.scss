@@ -1,0 +1,13 @@
+.banner {
+    background:black;
+    position: relative;
+    display: flex; 
+
+    .banner__logo {
+      //invert color black a white
+      filter: brightness(0) invert(1);
+
+    }
+    
+}
+
