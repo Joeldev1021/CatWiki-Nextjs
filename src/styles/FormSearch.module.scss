@@ -1,0 +1,21 @@
+.form {
+    background:white;
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    height: 49px;
+    border-radius: 40px;
+    overflow: hidden;
+    input {
+        width:270px;
+        background:none;
+        border:none;
+        outline: none;
+        padding-left: 20px;
+    }
+    button {
+        background:none;
+        border:none;
+        padding-right: 20px; 
+    }
+}
