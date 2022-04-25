@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    background:black;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px 40px 0 0;
+    padding: 10px 80px;
+    img {
+        filter: brightness(0) invert(1);
+    }
+    p {
+        color:white;
+    }
+}
