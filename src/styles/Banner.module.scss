@@ -2,12 +2,22 @@
     background:black;
     position: relative;
     display: flex; 
-
+    justify-content: space-around;
+    .banner__content {
+      width: 350px;
+      height: 200px;
+      position: absolute; 
+      top: 60px;
+      left: 80px;
+      z-index: 100;
+    }
+    .banner__text  {
+     color:white;
+     font-size: 24px;
+   } 
     .banner__logo {
       //invert color black a white
       filter: brightness(0) invert(1);
-
     }
-    
 }
 
