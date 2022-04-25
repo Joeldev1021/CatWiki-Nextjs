@@ -1,0 +1,26 @@
+.cat-details {
+   display: grid;
+   grid-template-columns: 40% 60%;
+   gap: 20px;
+   justify-content: center;
+   margin: auto;
+   color:#291507;
+}
+
+
+
+.cat-img {
+    margin-top: 30px;
+    margin-left: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 370px;
+    height: 370px;
+     img {
+        object-fit: cover;
+     }
+}
+
+.sub-title {
+   color:#291507;
+}
