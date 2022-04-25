@@ -1,0 +1,6 @@
+.cat-level {
+   display: grid;    
+   grid-template-columns: 180px 1fr;
+   justify-content: center;
+   align-items: center;
+}
