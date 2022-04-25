@@ -1,0 +1,18 @@
+.wrapper-other {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    margin:auto;
+    padding: 20px 0;
+    div {
+        border-radius: 20px;
+        width: 270px;
+        height: 270px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
