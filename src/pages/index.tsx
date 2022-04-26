@@ -1,22 +1,35 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import Banner from "@components/Banner";
-import Header from "@components/Header";
+import Home from "@components/Home";
 import Layout from "@containers/Layout";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { generateRandomNumber } from "utils";
 
 interface Props {
   data: any;
 }
 
-const Home = ({ data }: Props) => {
+const Index = ({ data }: Props) => {
+  const [randomCat, setRandomCat] = useState<any[]>([]);
+  const [numberRandom, setNumberRandom] = useState<number[]>([]);
+  //get random Number
+  useEffect(() => {
+    const res =generateRandomNumber(numberRandom, data.length);
+    setNumberRandom(res);
+  }, []);
+
+  // get random Cat
+  useEffect(() => {
+    const cats = numberRandom.map((i) => data[i]);
+    setRandomCat(cats);
+  }, [numberRandom]);
+
   return (
     <>
       <Layout>
-        <Header />
-        <Banner />
-        {data.map((item: any) => (
-          <Link key={item.id} href={item.id}><a>{item.name}</a></Link>
-        ))}
+        {randomCat.length > 0 ? (
+          <Home data={randomCat} />
+        ) : (
+          <div>Loading...</div>
+        )}
       </Layout>
     </>
   );
@@ -24,7 +37,7 @@ const Home = ({ data }: Props) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    `https://api.thecatapi.com/v1/breeds?limit=4&page=1`,
+    `${process.env.API_URL}/breeds`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +46,6 @@ export async function getStaticProps() {
     }
   );
   const data = await res.json();
-
   return {
     props: {
       data,
@@ -41,4 +53,5 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
+export default Index;
+//  `https://api.thecatapi.com/v1/breeds?limit=4&page=0`,
