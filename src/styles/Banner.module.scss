@@ -3,21 +3,50 @@
     position: relative;
     display: flex; 
     justify-content: space-around;
-    .banner__content {
+    @media screen and (max-width: 400px) {
+     height: 150px; 
+    }
+    .banner-content {
       width: 350px;
       height: 200px;
       position: absolute; 
       top: 60px;
       left: 80px;
       z-index: 100;
+      @media screen and (max-width: 800px) {
+        left: 20px;
+        width: 250px;
+        top: 20px;
+     }
+     @media screen and (max-width: 600px) {
+        left: 20px;
+        width: 150px;
+        top: 15px;
+     }
     }
-    .banner__text  {
+    .banner-text  {
      color:white;
      font-size: 24px;
+     @media screen and (max-width: 800px) {
+      font-size: 18px;
+      margin: 10px 0;
+     }
+     @media screen and (max-width: 600px) {
+      font-size: 10px;
+     }
    } 
-    .banner__logo {
+   .banner-content-logo {
+
+     .banner-logo {
       //invert color black a white
       filter: brightness(0) invert(1);
+      }
+      @media screen and (max-width: 800px) {
+        width: 200px; 
+      }
+      @media screen and (max-width: 600px) {
+        width: 100px; 
+      }
     }
+    
 }
-
