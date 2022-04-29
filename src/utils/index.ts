@@ -9,3 +9,10 @@ export const generateRandomNumber = (numberRandom: number[], length: number) => 
     }
     return n;
 };
+
+export  const config ={
+    header :{
+        "Content-Type" : "application/json",
+        "x-api-key": `${process.env.API_KEY}`
+    }
+};
