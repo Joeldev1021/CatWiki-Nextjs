@@ -5,6 +5,19 @@
    justify-content: center;
    margin: auto;
    color:#291507;
+   @media screen and (max-width: 900px) {
+     grid-template-columns: 1fr;
+     grid-gap: 20px;
+   }
+
+  @media screen and (max-width: 460px) {
+     .cat-name {
+         font-size: 20px;
+     }
+     p {
+         font-size: 14px;
+     }
+  } 
 }
 
 
@@ -19,8 +32,17 @@
      img {
         object-fit: cover;
      }
+     @media screen and (max-width: 900px) {
+       margin: auto; 
+       width: 300px;
+       height: 300px;
+     }
 }
 
 .sub-title {
    color:#291507;
+   @media screen and (max-width: 750px) {
+     font-size: 18px;
+      
+   }
 }

@@ -3,4 +3,16 @@
    grid-template-columns: 180px 1fr;
    justify-content: center;
    align-items: center;
+
+   @media screen and (max-width: 768px) {
+     grid-template-columns: 35% 60%;
+     justify-content: center;
+     grid-gap: 20px;
+   }
+   strong { 
+      @media screen and (max-width: 460px) {
+         font-size: 14px;
+         
+      }
+   }
 }

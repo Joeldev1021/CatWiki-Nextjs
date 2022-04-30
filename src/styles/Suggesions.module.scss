@@ -10,6 +10,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media screen and (max-width: 800px) {
+    width: 250px;
+  }
    a  {
     padding: 5px;
     margin: 8px;

@@ -9,4 +9,20 @@
   background: #E0E0E0;
   margin-right: 10px;
   border-radius: 8px;
+
+  @media screen and (max-width: 768px) {
+    width: 40px;
+    height: 6px;
+  }
+  @media screen and (max-width: 480px) {
+    width: 30px;
+    height: 6px;
+    
+  }
+  @media screen and (max-width: 360px) {
+    width: 20px;
+    height: 6px;
+    
+  }
 }
+

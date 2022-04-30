@@ -1,14 +1,38 @@
 .footer {
     display: flex;
+    margin:auto;
     background:black;
     justify-content: space-between;
     align-items: center;
     border-radius: 40px 40px 0 0;
     padding: 10px 80px;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 20px 20px;
+        align-items: flex-start;
+    }
+
     img {
         filter: brightness(0) invert(1);
     }
-    p {
+   p{
+       color:white;
+       @media screen and (max-width: 768px) {
+        font-size: 12px;
+        text-align: center;
+           
+       }
+   }
+   .img {
+       width: 200px;
+      @media screen and (max-width: 768px) {
+         width: 100px; 
+      } 
+   }
+    
+    a {
         color:white;
+        font-weight: bold;
+        border-bottom: 1px solid white;
     }
 }
