@@ -4,11 +4,16 @@
     gap: 40px;
     margin:auto;
     padding: 20px 0;
+    @media screen and (max-width: 460px) {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
     div {
         border-radius: 20px;
         width: 270px;
         height: 270px;
         overflow: hidden;
+        margin: auto;
         img {
             width: 100%;
             object-fit: cover;
