@@ -1,0 +1,51 @@
+.form-modal {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    form {
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        margin: auto;
+        margin-top: 60px;
+        padding: 10px 0px;
+        border-radius: 50px;
+        border: 2px solid black;
+       input {
+          border: none; 
+          outline: none;
+          background: none;
+          padding-left: 20px;
+          font-family: 'montserrat', sans-serif;
+          font-size: 18px;
+          color:#291507;
+          &::placeholder {
+            font-family: 'montserrat', sans-serif;
+            font-size: 18px;
+            color: #291507;
+          }
+       } 
+       button {
+           margin-right: 10px;
+           background:none;
+           border: none;
+       }
+    }
+   
+}
+
+.btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: none; 
+    border: none;
+    color: #291507;
+    font-weight: bold;
+    font-size: 15px;
+}
