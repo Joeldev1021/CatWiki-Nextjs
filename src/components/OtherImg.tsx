@@ -1,31 +1,33 @@
+import useFetch from "hooks/useFetch";
 import { BreedImg } from "interface";
+import styles from "@styles/otherImg.module.scss";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface Props {
   id: string;
 }
 
-
 const OtherImg = ({ id }: Props) => {
-  const [imgs, setImgs] = useState<BreedImg[]>([]);
-  useEffect(() => {
-    fetch(`https://api.thecatapi.com/v1/images/search?breed_id=${id}&limit=9`, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": `${process.env.API_KEY}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => setImgs(res));
-  }, [id]);
-  console.log(imgs);
+  const { data } = useFetch({ id });
+
   return (
-    <div>
-      {
-      imgs.length > 0 &&
-      imgs.map((item: BreedImg) => <Image height={item.height} width={item.width} key={item.id} src={item.url} alt={item.id} priority />)
-     }
+    <div className={styles["wrapper-other"]}>
+      {data.length > 0 &&
+        data.map((item: BreedImg) => {
+          return (
+            <div className={styles["card-other"]} key={item.id}>
+              <Image
+                height={item.height}
+                width={item.height}
+                key={item.id}
+                src={item.url}
+                alt={item.id}
+                layout="responsive"
+              />
+            </div>
+          );
+        })}
     </div>
   );
 };
