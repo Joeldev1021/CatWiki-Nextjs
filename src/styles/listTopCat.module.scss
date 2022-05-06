@@ -2,7 +2,12 @@
     font-size: 36px;
     font-weight: bold;
     color:#291507;
+
+    @media screen and (max-width: 460px) {
+        font-size: 26px;
+    }
 }
+
 .card-top {
     display: grid;
     grid-template-columns: 20% 70%;
@@ -10,6 +15,10 @@
     align-items: center; 
     @media screen and (max-width: 950px) {
       grid-template-columns: 30% 70%;
+      grid-gap: 10px;
+    }
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
       grid-gap: 10px;
     }
     .card-img {
@@ -25,10 +34,18 @@
         font-weight: 600;
         font-size: 36px;
         color:#291507;
+        @media screen and (max-width: 460px) {
+          font-size: 24px;
+        }
     }
     .card-description {
         font-size: 18px;
         color:#291507;
+        @media screen and (max-width: 460px) {
+          font-size: 14px;
+        
+            
+        }
     }
 }
 
