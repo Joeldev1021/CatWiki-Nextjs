@@ -18,7 +18,7 @@
       bottom: 20px;
       @media screen and (max-width: 768px) {
         display: none;
-        
+         
       }
     }
   }
@@ -56,6 +56,10 @@
 .main {
   border-radius: 20px;
   overflow: hidden;
+
+  @media screen and (max-width: 460px) {
+    border-radius: 40px;
+  }
   .wrapper {
     display: flex;
     align-items: center;
@@ -64,6 +68,7 @@
     padding: 20px;
     @media screen and (max-width: 768px) {
      padding: 40px 0px; 
+     justify-content: space-around;
     }
     & a {
       position: relative;
