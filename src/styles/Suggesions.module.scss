@@ -13,6 +13,10 @@
   @media screen and (max-width: 800px) {
     width: 250px;
   }
+  @media screen and (max-width: 460px) {
+    width: 90%;
+    height: 90%;
+  }
    a  {
     padding: 5px;
     margin: 8px;
@@ -22,6 +26,10 @@
     font-size: 17px;
     &:hover {
       cursor: pointer;
+    }
+    @media screen and (max-width: 460px) {
+      padding: 10px; 
+      padding-left: 15px;
     }
   }    
 
