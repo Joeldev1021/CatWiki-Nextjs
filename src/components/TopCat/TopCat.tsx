@@ -9,9 +9,10 @@ const TopCat = ({ topCat }: any) => {
     <>
       <Header/>
       <p className={styles['title-top']}>Top 10 most searched breeds</p>
-      {topCat.map((item: any) => {
+      {topCat.map((item: any, index:number) => {
         return (
           <ListTopCat
+             index={index} 
             key={item.id}
             name={item.name}
             description={item.description}

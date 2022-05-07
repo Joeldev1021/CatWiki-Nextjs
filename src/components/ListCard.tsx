@@ -9,10 +9,9 @@ interface Props {
 }
 
 const ListCard = ({ url, name }: Props) => {
-  console.log(url);
   return (
-    <div className={styles["card__item"]}>
-      <div className={styles["card__img"]}>
+    <div className={styles["card-item"]}>
+      <div className={styles["card-img"]}>
         <Image src={url} alt={name} width={220} height={220} priority />
       </div>
       <p className={styles["card__name"]}>{name}</p>

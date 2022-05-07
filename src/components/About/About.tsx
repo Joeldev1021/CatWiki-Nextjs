@@ -7,7 +7,12 @@ import AtributeCat from "./AtributeCat";
 import styles from "@styles/catDetails.module.scss";
 import Footer from "@components/Footer";
 
-const About:React.VFC = ({data}:any) => {
+interface AboutProps {
+  data: any;
+  image: string;
+}
+
+const About:React.VFC<AboutProps>= ({data, image}) => {
   return (
     <>
       <Header />
@@ -15,7 +20,7 @@ const About:React.VFC = ({data}:any) => {
         <div className={styles["cat-img"]}>
           <Image
             alt={data.name}
-            src={`https://cdn2.thecatapi.com/images/${data.reference_image_id}.jpg`}
+            src={image}
             width={370}
             height={370}
             layout="responsive"

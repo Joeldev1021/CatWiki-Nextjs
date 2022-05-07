@@ -11,8 +11,8 @@ interface AboutCatProps {
 
 const AboutCat = ({name, description, temperament, origin, life_span}:AboutCatProps) => {
   return (
-    <div>
-      <h1>{name}</h1>
+    <>
+      <h1 className={styles['cat-name']}>{name}</h1>
       <p className={styles["cat-description"]}>{description}</p>
       <p>
         <strong>Temperament: </strong>
@@ -26,7 +26,7 @@ const AboutCat = ({name, description, temperament, origin, life_span}:AboutCatPr
         <strong>Life span: </strong>
         {life_span}
       </p>
-    </div>
+    </>
   );
 };
 

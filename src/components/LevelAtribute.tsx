@@ -13,7 +13,7 @@ const LevelAtribute = ({ level }: PropsLevel) => {
       {levels.map((item: any) => (
         <p
           className={styles["bar-level"]}
-          style={{ background: `${item <= level ? "#544439" : "#E0E0E0;"}` }}
+          style={{ 'background': `${item <= level ? "#544439" : "#E0E0E0"}` }}
           key={item}
         ></p>
       ))}
