@@ -5,8 +5,10 @@ import React from 'react';
 const Footer = () => {
   return (
       <footer className={styles.footer}>
-          <Image src="/logo.svg" alt='logo' width={200} height={100} priority />
-          <p>© created by <strong>Joeldev1021 </strong> - devChallenge.io 2022</p>
+        <div className={styles.img}>
+          <Image src="/logo.svg" alt='logo' width={200} height={100} layout="responsive" />
+        </div>
+          <p>© created by <a href="https://github.com/Joeldev1021"> Joeldev1021 </a> - devChallenge.io 2022</p>
       </footer>
   );
 };
