@@ -4,8 +4,14 @@ interface WindowSize {
   height?: number;
 }
 
+/**
+ * It returns the window width and height as an object, and updates the object when the window is
+ * resized.
+ * @returns The window size.
+ */
+
 export function useWindowSize () {
-  const [windowSize, setWindowSize] = useState<WindowSize>({
+const [windowSize, setWindowSize] = useState<WindowSize>({
     width: undefined,
     height: undefined,
   });
