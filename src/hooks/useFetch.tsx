@@ -1,22 +1,28 @@
 import { BreedImg } from "interface";
 import { useEffect, useState } from "react";
+import { config } from "utils";
 
 interface Props {
-    id: string;
+    id?: string | undefined;
+    url?: string | undefined;
 }
 
-export default function useFetch  ({id}: Props) {
-  const [imgs, setImgs] = useState<BreedImg[]>([]);
+/**
+ * It's a custom hook that fetches data from an API and returns the data as an object.
+ * @param {Props}  - Props = {
+ * @returns An object with a data property.
+ */
+
+export default function useFetch  ({id, url}: Props) {
+  const URL = url? url : `https://api.thecatapi.com/v1/images/search?breed_id=${id}&limit=9`;
+  const [data, setData] = useState<BreedImg[]>([]);
     useEffect(() => {
-    fetch(`https://api.thecatapi.com/v1/images/search?breed_id=${id}&limit=9`, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": `${process.env.API_KEY}`,
-      },
+    fetch(URL, {
+      headers:config.header 
     })
       .then((res) => res.json())
-      .then((res) => setImgs(res));
+      .then((res) => setData(res));
   }, [id]);
 
-  return {imgs};
+  return {data};
 }
