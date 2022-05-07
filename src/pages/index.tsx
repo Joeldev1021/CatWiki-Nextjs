@@ -1,18 +1,20 @@
 import Home from "@components/Home";
+import Loading from "@components/Loading";
 import Layout from "@containers/Layout";
 import { useEffect, useState } from "react";
-import { generateRandomNumber } from "utils";
+import { generateRandomNumber, config } from "utils";
 
 interface Props {
   data: any;
 }
 
 const Index = ({ data }: Props) => {
+
   const [randomCat, setRandomCat] = useState<any[]>([]);
   const [numberRandom, setNumberRandom] = useState<number[]>([]);
   //get random Number
   useEffect(() => {
-    const res =generateRandomNumber(numberRandom, data.length);
+    const res = generateRandomNumber(numberRandom, data.length-1);
     setNumberRandom(res);
   }, []);
 
@@ -25,26 +27,16 @@ const Index = ({ data }: Props) => {
   return (
     <>
       <Layout>
-        {randomCat.length > 0 ? (
-          <Home data={randomCat} />
-        ) : (
-          <div>Loading...</div>
-        )}
+        {randomCat.length > 0 ? <Home data={randomCat} /> : <Loading />}
       </Layout>
     </>
   );
 };
 
 export async function getStaticProps() {
-  const res = await fetch(
-    `${process.env.API_URL}/breeds`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": `${process.env.API_KEY}`,
-      },
-    }
-  );
+  const res = await fetch(`${process.env.API_URL}/breeds`, {
+    headers: config.header,
+  });
   const data = await res.json();
   return {
     props: {
@@ -54,4 +46,3 @@ export async function getStaticProps() {
 }
 
 export default Index;
-//  `https://api.thecatapi.com/v1/breeds?limit=4&page=0`,
