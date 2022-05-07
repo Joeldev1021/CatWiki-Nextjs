@@ -4,45 +4,43 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "@styles/Banner.module.scss";
 import FormSearch from "./FormSearch";
+import { config } from "utils";
+import { useWindowSize } from "hooks/useWindowSize";
+import useFetch from "hooks/useFetch";
 
-const Banner = () => {
+const url:string = 'https://api.thecatapi.com/v1/breeds';
+
+const Banner: React.VFC = () => {
   const [searcData, setSearcData] = useState<string>("");
-  const [listCat, setListCat] = useState<any[]>([]);
+  const [isShowModalSearch, setIsShowModalSearch] = useState<boolean>(false);
 
-  const handleSearch = (n:string) => {
+  const { width } = useWindowSize();
+  const { data } = useFetch({ url });
+
+  const handleSearch = (n: string) => {
     setSearcData(n);
   };
-
-  useEffect(() => {
-      fetch(`https://api.thecatapi.com/v1/breeds`, {
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": `${process.env.API_KEY}`,
-        },
-      })
-      .then(res => res.json())
-      .then(data => setListCat(data))
-      .catch(err => console.log(err))
-      .finally(() => console.log("finally"));
-  }, []);
   
-
   return (
     <div className={styles.banner}>
-      <div className={styles["banner__content"]}>
-        <Image
-          className={styles["banner__logo"]}
-          src="/logo.svg"
-          alt="logo"
-          width={300}
-          height={100}
-          priority
-        />  
-        <p className={styles["banner__text"]}>Get to know more about your cat breed</p>
-        <FormSearch handleSearch={handleSearch} listCat={listCat} />
+      <div className={styles["banner-content"]}>
+        <div className={styles['banner-content-logo']}>
+          <Image
+            className={styles["banner-logo"]}
+            src={width! > 768 ? "/logo.svg" : "/logo-mobile.svg"}
+            alt="logo"
+            width={300}
+            height={100}
+            layout="responsive"
+          />
+        </div>
+        <p className={styles["banner-text"]}>
+          Get to know more about your cat breed
+        </p>
+        <FormSearch width={width} handleSearch={handleSearch} listCat={data} />
       </div>
       <Image
-        src="/HeroImagelg.png"
+        src={width! > 768 ? "/HeroImagelg.png" : "/HeroImagesm.png"}
         width={1100}
         alt="Hero Image"
         height={470}
